@@ -2,12 +2,14 @@ package tusi.com;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import tusi.com.Node; ;
+import tusi.com.Node;
+
 
 
 public class Main {
 
 	static Node nodeRoot = new Node();
+ 
 	
 	
 	public static void main(String[] args) {
@@ -15,13 +17,23 @@ public class Main {
 	    InputStreamReader in=new InputStreamReader(System.in);
     	BufferedReader br=new BufferedReader(in);
 	    String a = "";
-	    nodeRoot = null;
+	    nodeRoot = null ;
 	    	    
-	    System.out.println("f - insert new first tag");
-	    System.out.println("n - insert new last tag");
-	    System.out.println("d - delete tag from position");
-	    System.out.println("v - delete value");
-	    System.out.println("l - lqist tags");
+	    System.out.println("f - insert new first tag linkedList");
+	    System.out.println("n - insert new last tag linkedList");
+	    System.out.println("d - delete tag from position linkedList");
+	    System.out.println("v - delete value linkedList");
+	    System.out.println("l - list tags linkedList");
+	    System.out.println("w - delete first tag linkedList");
+	    System.out.println("s - show position value linkedList");
+	    
+	    System.out.println("");
+
+	    System.out.println("p - push value to the stack");
+	    System.out.println("t - take pop value in the stack");
+	    System.out.println("r - return the top value in the stack");
+	    
+	    System.out.println("");
 	    System.out.println("q - quit");
 	    System.out.println("");
 	    
@@ -41,6 +53,29 @@ public class Main {
 	    		}
 	    		
 	    		if (a.equals("l")) list ();
+
+	    		
+	    		if (a.equals("w")) deleteFirst ();	    		
+	    		
+	    		if (a.equals("s")) {
+	    			System.out.print(" Melyik pozíció értékét írjuk ki? ");
+	    			System.out.print(show (Integer.valueOf(br.readLine())));	    			
+	    		}
+	    		
+	    		
+	    		
+	    		if (a.equals("p")) {
+	    			System.out.print(" Mennyit irjunk bele? ");
+	    			push (Integer.valueOf(br.readLine()));	    			
+	    		}
+	    		if (a.equals("t")) {
+	    			System.out.print(pop ());
+	    			deleteFirst();
+	    		}
+	    		
+	    		if (a.equals("r")) System.out.print(peek());
+	    		
+	    		
 	    		
 	    		
 	    	}	    	
@@ -107,4 +142,43 @@ public class Main {
 	}
 	
 	
+//	********************************************************************************************************
+	public static String show (int position) {
+		int szamlalo = 0;
+		String ertek = "Nincs ilyen pozíció" ;
+		Node elem = nodeRoot;
+		if (nodeRoot != null) {
+			do {
+				if (szamlalo == position) {
+					ertek = String.valueOf(elem.value) ;
+				} else {
+					elem = elem.nextValue;
+				}
+				szamlalo++;
+			} while ((elem.nextValue != null) && (szamlalo - 1 < position));
+		}
+		return ertek;
+	}
+	
+	public static void deleteFirst() {
+		Node elem = nodeRoot;
+		nodeRoot = elem.nextValue;
+	}
+	
+	public static void push (int insertValue) {
+		firstInsert(insertValue);
+	}
+
+	public static String pop () {
+		return show(0);
+	}
+	
+	public static String peek () {
+		return show(0);
+	}
+	
+	
+	
 }
+
+
