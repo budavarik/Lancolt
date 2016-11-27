@@ -30,8 +30,8 @@ public class Main {
 	    System.out.println("");
 
 	    System.out.println("p - push value to the stack");
-	    System.out.println("t - take pop value in the stack");
-	    System.out.println("r - return the top value in the stack");
+	    System.out.println("t - take pop value from the stack");
+	    System.out.println("r - return the top value from the stack");
 	    
 	    System.out.println("");
 	    System.out.println("q - quit");
@@ -74,10 +74,6 @@ public class Main {
 	    		}
 	    		
 	    		if (a.equals("r")) System.out.print(peek());
-	    		
-	    		
-	    		
-	    		
 	    	}	    	
     	}
 	    catch(Exception e){}		
