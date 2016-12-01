@@ -9,7 +9,8 @@ public class Main {
 
     private static MyLinkedList myLinkedList;
     private static MyStack myStack;
-
+    private static MyQueue myQueue;
+    
     public static void main(String[] args) {
 
         myLinkedList = new MyLinkedList();
@@ -34,6 +35,12 @@ public class Main {
         System.out.println("t - take pop value from the stack");
         System.out.println("r - return the top value from the stack");
 
+        System.out.println("");
+        System.out.println("c - push value to the queue");
+        System.out.println("x - take pop value from the queue");
+        System.out.println("y - return the top value from the queue");
+
+        
         System.out.println("");
         System.out.println("q - quit");
         System.out.println("");
@@ -68,6 +75,8 @@ public class Main {
                 }
 
 
+                
+                //********************stack
                 if (a.equals("p")) {
                     System.out.print(" Mennyit irjunk bele? ");
                     myStack.push(Integer.valueOf(br.readLine()));
@@ -77,6 +86,20 @@ public class Main {
                 }
 
                 if (a.equals("r")) System.out.print(myStack.peek());
+
+                //********************queue
+                if (a.equals("c")) {
+                    System.out.print(" Mennyit irjunk bele? ");
+                    myQueue.offer(Integer.valueOf(br.readLine()));
+                }
+                if (a.equals("x")) {
+                    System.out.print(myQueue.poll());
+                }
+
+                if (a.equals("y")) System.out.print(myQueue.peek());
+            
+            
+            
             }
         } catch (Exception e) {
         }

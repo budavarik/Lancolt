@@ -35,6 +35,19 @@ public class MyLinkedList {
         nodeRoot = elem.nextValue;
     }
 
+    public void deleteLast() {
+        Node elem = nodeRoot;
+        if elem.nextValue != null {
+            do {
+                System.out.print(entry.value + ", ");
+                entry = entry.nextValue;
+            } while (entry.nextValue.nextValue != null);        	
+        nodeRoot = elem.nextValue = null;
+        } else {
+        	elem.nextValue = null;
+        }
+    }
+
     public boolean deleteValue(int value) {
         Node entry = nodeRoot;
         Node lastEntry = nodeRoot;
@@ -91,6 +104,18 @@ public class MyLinkedList {
         return ertek;
     }
 
+    public String showLast () {
+        Node elem = nodeRoot;
+        if elem != null {
+            do {
+                System.out.print(entry.value + ", ");
+                entry = entry.nextValue;
+            } while (entry.nextValue != null);        	
+        return String.valueOf(elem.value) ;
+        } else {
+        	return "Üres";
+        }
+    }
 
 }
 
